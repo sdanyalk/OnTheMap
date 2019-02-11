@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A3232EB220FCAE6009821B2 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3232EA220FCAE6009821B2 /* Endpoints.swift */; };
+		5A3232F1220FD9BA009821B2 /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3232F0220FD9BA009821B2 /* SessionResponse.swift */; };
+		5A3232F3220FDA33009821B2 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3232F2220FDA33009821B2 /* LoginRequest.swift */; };
+		5A3232F5220FDAA7009821B2 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3232F4220FDAA7009821B2 /* Session.swift */; };
+		5A3232F72211134A009821B2 /* Udacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3232F62211134A009821B2 /* Udacity.swift */; };
+		5A3232F922112167009821B2 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3232F822112167009821B2 /* ErrorResponse.swift */; };
 		5AE74F3E21FAB78C005A6DB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE74F3D21FAB78C005A6DB5 /* AppDelegate.swift */; };
-		5AE74F4021FAB78C005A6DB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE74F3F21FAB78C005A6DB5 /* ViewController.swift */; };
+		5AE74F4021FAB78C005A6DB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE74F3F21FAB78C005A6DB5 /* LoginViewController.swift */; };
 		5AE74F4321FAB78C005A6DB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE74F4121FAB78C005A6DB5 /* Main.storyboard */; };
 		5AE74F4521FAB78D005A6DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AE74F4421FAB78D005A6DB5 /* Assets.xcassets */; };
 		5AE74F4821FAB78D005A6DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE74F4621FAB78D005A6DB5 /* LaunchScreen.storyboard */; };
 		5AE74F5021FAB945005A6DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5AE74F4F21FAB945005A6DB5 /* README.md */; };
+		5AE74F5822002E5A005A6DB5 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE74F5722002E5A005A6DB5 /* UdacityClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A3232EA220FCAE6009821B2 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		5A3232F0220FD9BA009821B2 /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
+		5A3232F2220FDA33009821B2 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		5A3232F4220FDAA7009821B2 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		5A3232F62211134A009821B2 /* Udacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Udacity.swift; sourceTree = "<group>"; };
+		5A3232F822112167009821B2 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		5AE74F3A21FAB78C005A6DB5 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE74F3D21FAB78C005A6DB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5AE74F3F21FAB78C005A6DB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5AE74F3F21FAB78C005A6DB5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5AE74F4221FAB78C005A6DB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5AE74F4421FAB78D005A6DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AE74F4721FAB78D005A6DB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AE74F4921FAB78D005A6DB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AE74F4F21FAB945005A6DB5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5AE74F5722002E5A005A6DB5 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +51,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A3232EC220FD768009821B2 /* Udacity Requests */ = {
+			isa = PBXGroup;
+			children = (
+				5A3232F2220FDA33009821B2 /* LoginRequest.swift */,
+				5A3232F62211134A009821B2 /* Udacity.swift */,
+			);
+			path = "Udacity Requests";
+			sourceTree = "<group>";
+		};
+		5A3232EF220FD990009821B2 /* Udacity Responses */ = {
+			isa = PBXGroup;
+			children = (
+				5A3232F0220FD9BA009821B2 /* SessionResponse.swift */,
+				5A3232F4220FDAA7009821B2 /* Session.swift */,
+				5A3232F822112167009821B2 /* ErrorResponse.swift */,
+			);
+			path = "Udacity Responses";
+			sourceTree = "<group>";
+		};
 		5AE74F3121FAB78C005A6DB5 = {
 			isa = PBXGroup;
 			children = (
@@ -59,9 +92,9 @@
 			children = (
 				5AE74F3D21FAB78C005A6DB5 /* AppDelegate.swift */,
 				5AE74F4921FAB78D005A6DB5 /* Info.plist */,
-				5AE74F5521FABAE7005A6DB5 /* Controller */,
 				5AE74F5421FABAE0005A6DB5 /* Model */,
 				5AE74F5321FABAD6005A6DB5 /* View */,
+				5AE74F5521FABAE7005A6DB5 /* Controller */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -79,6 +112,9 @@
 		5AE74F5421FABAE0005A6DB5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5A3232EF220FD990009821B2 /* Udacity Responses */,
+				5A3232EC220FD768009821B2 /* Udacity Requests */,
+				5AE74F5622002E35005A6DB5 /* Udacity Client */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -86,9 +122,18 @@
 		5AE74F5521FABAE7005A6DB5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5AE74F3F21FAB78C005A6DB5 /* ViewController.swift */,
+				5AE74F3F21FAB78C005A6DB5 /* LoginViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		5AE74F5622002E35005A6DB5 /* Udacity Client */ = {
+			isa = PBXGroup;
+			children = (
+				5AE74F5722002E5A005A6DB5 /* UdacityClient.swift */,
+				5A3232EA220FCAE6009821B2 /* Endpoints.swift */,
+			);
+			path = "Udacity Client";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,8 +208,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AE74F4021FAB78C005A6DB5 /* ViewController.swift in Sources */,
+				5A3232F5220FDAA7009821B2 /* Session.swift in Sources */,
+				5AE74F4021FAB78C005A6DB5 /* LoginViewController.swift in Sources */,
 				5AE74F3E21FAB78C005A6DB5 /* AppDelegate.swift in Sources */,
+				5A3232F72211134A009821B2 /* Udacity.swift in Sources */,
+				5A3232EB220FCAE6009821B2 /* Endpoints.swift in Sources */,
+				5A3232F3220FDA33009821B2 /* LoginRequest.swift in Sources */,
+				5A3232F922112167009821B2 /* ErrorResponse.swift in Sources */,
+				5AE74F5822002E5A005A6DB5 /* UdacityClient.swift in Sources */,
+				5A3232F1220FD9BA009821B2 /* SessionResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,8 +19,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         activityIndicator.isHidden = true
-        emailTextField.text = ""
-        passwordTextField.text = ""
+        emailTextField.text = "toxicajepu@netmails.info"
+        passwordTextField.text = "Udacity@Test"
     }
     
     @IBAction func loginButtonClicked(_ sender: Any) {
@@ -60,8 +60,7 @@ extension LoginViewController {
         setLoggingIn(false)
         
         if success {
-            print("Successful login")
-            //segue to other screen
+            performSegue(withIdentifier: "loginSuccessful", sender: nil)
         } else {
             showLoginFailure(message: error?.localizedDescription ?? "")
         }

@@ -10,14 +10,19 @@ import Foundation
 
 enum Endpoints {
     
-    static let base = "https://onthemap-api.udacity.com/v1"
+    static let udacityBase = "https://onthemap-api.udacity.com/v1"
+    static let parseBase = "https://parse.udacity.com/parse/classes"
     
     case createSessionId
+    case getStudentLocation
     
     var stringValue: String {
         switch self {
         case .createSessionId:
-            return Endpoints.base + "/session"
+            return Endpoints.udacityBase + "/session"
+            
+        case .getStudentLocation:
+            return Endpoints.parseBase + "/StudentLocation"
         }
     }
     

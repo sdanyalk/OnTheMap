@@ -18,6 +18,7 @@
 		5A3233032213362B009821B2 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3233022213362B009821B2 /* ParseClient.swift */; };
 		5A32330622134298009821B2 /* LocationResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32330522134298009821B2 /* LocationResultResponse.swift */; };
 		5A323308221342B2009821B2 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A323307221342B2009821B2 /* StudentLocation.swift */; };
+		5A32330B2214ADDA009821B2 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32330A2214ADDA009821B2 /* Common.swift */; };
 		5AE74F3E21FAB78C005A6DB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE74F3D21FAB78C005A6DB5 /* AppDelegate.swift */; };
 		5AE74F4021FAB78C005A6DB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE74F3F21FAB78C005A6DB5 /* LoginViewController.swift */; };
 		5AE74F4321FAB78C005A6DB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE74F4121FAB78C005A6DB5 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		5A3233022213362B009821B2 /* ParseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		5A32330522134298009821B2 /* LocationResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResultResponse.swift; sourceTree = "<group>"; };
 		5A323307221342B2009821B2 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		5A32330A2214ADDA009821B2 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		5AE74F3A21FAB78C005A6DB5 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE74F3D21FAB78C005A6DB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AE74F3F21FAB78C005A6DB5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 			path = "Parse Responses";
 			sourceTree = "<group>";
 		};
+		5A3233092214AD8F009821B2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				5A32330A2214ADDA009821B2 /* Common.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		5AE74F3121FAB78C005A6DB5 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +149,7 @@
 		5AE74F5421FABAE0005A6DB5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5A3233092214AD8F009821B2 /* Shared */,
 				5A32330422134215009821B2 /* Parse Responses */,
 				5A32330122133617009821B2 /* Parse Client */,
 				5A3232EF220FD990009821B2 /* Udacity Responses */,
@@ -252,6 +263,7 @@
 				5AE74F5822002E5A005A6DB5 /* UdacityClient.swift in Sources */,
 				5A3232F1220FD9BA009821B2 /* SessionResponse.swift in Sources */,
 				5A32330622134298009821B2 /* LocationResultResponse.swift in Sources */,
+				5A32330B2214ADDA009821B2 /* Common.swift in Sources */,
 				5A3233032213362B009821B2 /* ParseClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

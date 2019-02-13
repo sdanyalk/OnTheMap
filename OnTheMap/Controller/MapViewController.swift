@@ -29,9 +29,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     let lastName: String = location.lastName,
                     let mediaURL: String = location.mediaURL else {
                         
-                        print("ERROR: one of the properties needed for annotation is empty")
+                        debugPrint("ERROR: one of the properties needed for annotation is empty")
                         continue
                 }
+                Common.sharedInstance.studentLocation.append(location)
+                
                 let latitude = CLLocationDegrees(lat)
                 let longitude = CLLocationDegrees(long)
                 

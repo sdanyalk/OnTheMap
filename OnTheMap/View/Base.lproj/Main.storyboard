@@ -134,7 +134,7 @@
             </objects>
             <point key="canvasLocation" x="1752" y="461"/>
         </scene>
-        <!--List Table View Controller-->
+        <!--On The Map-->
         <scene sceneID="4TV-N3-tb5">
             <objects>
                 <tableViewController id="a5g-ef-lS0" customClass="ListTableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -157,7 +157,10 @@
                             <outlet property="delegate" destination="a5g-ef-lS0" id="3SM-kh-jK6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="dce-BX-qBP"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="dce-BX-qBP">
+                        <barButtonItem key="leftBarButtonItem" image="icon_pin" id="2tX-Rl-EdS"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon_refresh" id="eYI-Ee-hie"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGz-Ri-gzo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,7 +183,7 @@
             </objects>
             <point key="canvasLocation" x="1752" y="-253"/>
         </scene>
-        <!--Map View Controller-->
+        <!--On The Map-->
         <scene sceneID="EUX-xq-PSb">
             <objects>
                 <viewController storyboardIdentifier="MapViewController" id="HTo-aH-OYL" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -201,7 +204,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lPV-O0-LFa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7Vc-vh-EoC"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="7Vc-vh-EoC">
+                        <barButtonItem key="leftBarButtonItem" image="icon_pin" id="5j9-NY-UCx"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon_refresh" id="z4j-oa-ZEF"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="o8U-jf-74l" id="BYt-N7-2J8"/>
                     </connections>
@@ -232,6 +238,8 @@
     <resources>
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-selected" width="75" height="50"/>
+        <image name="icon_pin" width="24" height="24"/>
+        <image name="icon_refresh" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
 </document>

@@ -17,6 +17,14 @@ class ListTableViewController: UITableViewController {
         
         studentLocations = Common.sharedInstance.studentLocation
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
+        }
+    }
 
     // MARK: - Table view data source
 

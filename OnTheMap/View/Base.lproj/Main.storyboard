@@ -166,6 +166,81 @@
             </objects>
             <point key="canvasLocation" x="2503" y="461"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Jg3-QT-rne">
+            <objects>
+                <viewController id="xkV-za-D5u" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6k7-uA-Kry">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="m6x-gH-hZX">
+                                <rect key="frame" x="20" y="20" width="374" height="696"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you studying today?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjw-eI-gZ7">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="Leh-P1-U8a"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jzc-Z9-GdU">
+                                        <rect key="frame" x="0.0" y="300" width="374" height="200"/>
+                                        <color key="backgroundColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="h4Y-ra-JjS"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="o46-Me-h13"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMy-Er-r1m">
+                                        <rect key="frame" x="0.0" y="500" width="374" height="196"/>
+                                        <subviews>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Tgj-w1-fKx">
+                                                <rect key="frame" x="177" y="18" width="20" height="20"/>
+                                            </activityIndicatorView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asb-S4-fgQ">
+                                                <rect key="frame" x="132" y="93" width="111" height="33"/>
+                                                <state key="normal" title="Find on the Map"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Asb-S4-fgQ" firstAttribute="top" secondItem="Tgj-w1-fKx" secondAttribute="bottom" constant="55" id="4Nj-Ja-WyP"/>
+                                            <constraint firstItem="Asb-S4-fgQ" firstAttribute="top" secondItem="Tgj-w1-fKx" secondAttribute="bottom" constant="55" id="96N-yu-mLB"/>
+                                            <constraint firstItem="Asb-S4-fgQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oMy-Er-r1m" secondAttribute="leading" symbolic="YES" id="O73-P9-FT9"/>
+                                            <constraint firstAttribute="bottom" secondItem="Asb-S4-fgQ" secondAttribute="bottom" constant="70" id="OSu-ub-9Jd"/>
+                                            <constraint firstItem="Tgj-w1-fKx" firstAttribute="leading" secondItem="oMy-Er-r1m" secondAttribute="leading" constant="177" id="aJe-cG-3QT"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tgj-w1-fKx" secondAttribute="trailing" constant="177" id="ixN-mh-C7f"/>
+                                            <constraint firstAttribute="trailing" secondItem="Asb-S4-fgQ" secondAttribute="trailing" constant="131" id="kCe-qd-Gh7"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tgj-w1-fKx" secondAttribute="trailing" constant="177" id="pdd-5h-Ypz"/>
+                                            <constraint firstItem="Tgj-w1-fKx" firstAttribute="top" secondItem="oMy-Er-r1m" secondAttribute="top" constant="18" id="r44-yg-fwc"/>
+                                            <constraint firstItem="Tgj-w1-fKx" firstAttribute="leading" secondItem="oMy-Er-r1m" secondAttribute="leading" constant="177" id="sWX-yh-0aT"/>
+                                            <constraint firstItem="Tgj-w1-fKx" firstAttribute="top" secondItem="oMy-Er-r1m" secondAttribute="top" constant="18" id="u3C-Rz-QHm"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SHU-gc-OG3" firstAttribute="bottom" secondItem="m6x-gH-hZX" secondAttribute="bottom" constant="20" id="HpH-vo-lDc"/>
+                            <constraint firstItem="m6x-gH-hZX" firstAttribute="leading" secondItem="SHU-gc-OG3" secondAttribute="leading" constant="20" id="TW0-sr-XKm"/>
+                            <constraint firstItem="SHU-gc-OG3" firstAttribute="trailing" secondItem="m6x-gH-hZX" secondAttribute="trailing" constant="20" id="aJG-TW-JeO"/>
+                            <constraint firstItem="m6x-gH-hZX" firstAttribute="top" secondItem="SHU-gc-OG3" secondAttribute="top" id="luL-Py-WmK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SHU-gc-OG3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mHe-Mb-86z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3421.739130434783" y="128.80434782608697"/>
+        </scene>
         <!--Map-->
         <scene sceneID="5aD-Er-qkM">
             <objects>
@@ -205,7 +280,11 @@
                         <viewLayoutGuide key="safeArea" id="lPV-O0-LFa"/>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="7Vc-vh-EoC">
-                        <barButtonItem key="leftBarButtonItem" image="icon_pin" id="5j9-NY-UCx"/>
+                        <barButtonItem key="leftBarButtonItem" image="icon_pin" id="5j9-NY-UCx">
+                            <connections>
+                                <segue destination="xkV-za-D5u" kind="presentation" id="A8X-ow-7Fh"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="icon_refresh" id="z4j-oa-ZEF"/>
                     </navigationItem>
                     <connections>

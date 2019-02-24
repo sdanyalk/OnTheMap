@@ -166,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="2503" y="461"/>
         </scene>
-        <!--View Controller-->
+        <!--Find Location View Controller-->
         <scene sceneID="Jg3-QT-rne">
             <objects>
-                <viewController id="xkV-za-D5u" sceneMemberID="viewController">
+                <viewController id="xkV-za-D5u" customClass="FindLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6k7-uA-Kry">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,33 +187,47 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jzc-Z9-GdU">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Dallas, TX" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jzc-Z9-GdU">
                                         <rect key="frame" x="0.0" y="300" width="374" height="200"/>
-                                        <color key="backgroundColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="selectedContentBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="h4Y-ra-JjS"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="o46-Me-h13"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMy-Er-r1m">
                                         <rect key="frame" x="0.0" y="500" width="374" height="196"/>
                                         <subviews>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Tgj-w1-fKx">
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Tgj-w1-fKx">
                                                 <rect key="frame" x="177" y="18" width="20" height="20"/>
                                             </activityIndicatorView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asb-S4-fgQ">
-                                                <rect key="frame" x="132" y="93" width="111" height="33"/>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asb-S4-fgQ">
+                                                <rect key="frame" x="103" y="93" width="140" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="DwY-W3-SsT"/>
+                                                    <constraint firstAttribute="height" constant="33" id="WXa-Y1-Y2c"/>
+                                                </constraints>
                                                 <state key="normal" title="Find on the Map"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBound" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="findOnMap:" destination="xkV-za-D5u" eventType="touchUpInside" id="aNj-ie-TcI"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Asb-S4-fgQ" firstAttribute="top" secondItem="Tgj-w1-fKx" secondAttribute="bottom" constant="55" id="4Nj-Ja-WyP"/>
                                             <constraint firstItem="Asb-S4-fgQ" firstAttribute="top" secondItem="Tgj-w1-fKx" secondAttribute="bottom" constant="55" id="96N-yu-mLB"/>
-                                            <constraint firstItem="Asb-S4-fgQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oMy-Er-r1m" secondAttribute="leading" symbolic="YES" id="O73-P9-FT9"/>
+                                            <constraint firstItem="Asb-S4-fgQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oMy-Er-r1m" secondAttribute="leading" constant="20" symbolic="YES" id="O73-P9-FT9"/>
                                             <constraint firstAttribute="bottom" secondItem="Asb-S4-fgQ" secondAttribute="bottom" constant="70" id="OSu-ub-9Jd"/>
                                             <constraint firstItem="Tgj-w1-fKx" firstAttribute="leading" secondItem="oMy-Er-r1m" secondAttribute="leading" constant="177" id="aJe-cG-3QT"/>
                                             <constraint firstAttribute="trailing" secondItem="Tgj-w1-fKx" secondAttribute="trailing" constant="177" id="ixN-mh-C7f"/>
@@ -236,10 +250,71 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SHU-gc-OG3"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Tgj-w1-fKx" id="vgJ-t2-Ocs"/>
+                        <outlet property="findButton" destination="Asb-S4-fgQ" id="HYS-NV-UKF"/>
+                        <outlet property="locationTextField" destination="Jzc-Z9-GdU" id="3xF-sA-bpb"/>
+                        <segue destination="c3x-bc-Ta4" kind="presentation" identifier="pinLocationSegue" id="UVk-dS-C0H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHe-Mb-86z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3421.739130434783" y="128.80434782608697"/>
+        </scene>
+        <!--Pin Location Map View Controller-->
+        <scene sceneID="cL8-kf-6wS">
+            <objects>
+                <viewController storyboardIdentifier="PinLocationMapViewController" id="c3x-bc-Ta4" customClass="PinLocationMapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8oH-BJ-MQK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZDh-V1-KVq">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter a Link To Share" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uhc-st-9Oi">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="186"/>
+                                        <color key="backgroundColor" name="selectedContentBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZxC-UK-nkj">
+                                        <rect key="frame" x="0.0" y="186" width="414" height="500"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="500" id="57E-Bb-iEk"/>
+                                            <constraint firstAttribute="width" constant="414" id="w0K-ue-nfP"/>
+                                        </constraints>
+                                    </mapView>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0T9-6R-upz">
+                                        <rect key="frame" x="0.0" y="686" width="414" height="30"/>
+                                        <color key="backgroundColor" name="selectedContentBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="submit:" destination="c3x-bc-Ta4" eventType="touchUpInside" id="S1t-z6-QTk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZDh-V1-KVq" firstAttribute="top" secondItem="6PX-BB-7RQ" secondAttribute="top" id="FhH-XJ-NoS"/>
+                            <constraint firstItem="6PX-BB-7RQ" firstAttribute="bottom" secondItem="ZDh-V1-KVq" secondAttribute="bottom" id="SvV-8l-J42"/>
+                            <constraint firstItem="6PX-BB-7RQ" firstAttribute="trailing" secondItem="ZDh-V1-KVq" secondAttribute="trailing" id="VBM-YO-4NE"/>
+                            <constraint firstItem="ZDh-V1-KVq" firstAttribute="leading" secondItem="6PX-BB-7RQ" secondAttribute="leading" id="xVX-78-KaS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6PX-BB-7RQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="ZxC-UK-nkj" id="33B-93-tt3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rjR-td-bEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4166.666666666667" y="128.80434782608697"/>
         </scene>
         <!--Map-->
         <scene sceneID="5aD-Er-qkM">

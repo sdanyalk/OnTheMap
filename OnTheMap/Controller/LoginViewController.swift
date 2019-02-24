@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
 }
 
 // Mark - Private Functions
+
 extension LoginViewController {
     
     private func setLoggingIn(_ loggingIn: Bool) {
@@ -45,15 +46,10 @@ extension LoginViewController {
         passwordTextField.isEnabled = !loggingIn
         loginButton.isEnabled = !loggingIn
     }
-    
-    private func showLoginFailure(message: String) {
-        let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
-    }
 }
 
 // Mark - Completion Handlers
+
 extension LoginViewController {
     
     private func handleLoginResponse(success: Bool, error: Error?) {
@@ -62,7 +58,7 @@ extension LoginViewController {
         if success {
             performSegue(withIdentifier: "loginSuccessful", sender: nil)
         } else {
-            showLoginFailure(message: error?.localizedDescription ?? "")
+            showError(withMessage: "Login failed. Check id/password")
         }
     }
 }

@@ -19,6 +19,7 @@ class FindLocationViewController: UIViewController {
     
     // MARK: Variables
     lazy var geocoder = CLGeocoder()
+    var coordinate: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +34,47 @@ class FindLocationViewController: UIViewController {
             showError(withMessage: "Location is required")
             return
         }
+        
+        geocode(location: location)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pinLocationSegue" {
+            if let vc = segue.destination as? PinLocationMapViewController {
+                vc.studentCoordinate = self.coordinate
+            }
+        }
     }
 }
 
+// Mark - Private Functions
+
 extension FindLocationViewController {
     
-    // MARK: - Private Functions
-    
-    
+    private func geocode(location: String) {
+        activityIndicator.startAnimating()
+        
+        geocoder.geocodeAddressString(location) { (placemarks, error) in
+            self.performUIUpdatesOnMain {
+                self.activityIndicator.stopAnimating()
+            }
+            
+            if let error = error {
+                self.showError(withMessage: "Error with geo location: (\(error))")
+            } else {
+                var location: CLLocation?
+                
+                if let placemarks = placemarks, placemarks.count > 0 {
+                    location = placemarks.first?.location
+                }
+                
+                if let location = location {
+                    self.coordinate = location.coordinate
+                    self.performSegue(withIdentifier: "pinLocationSegue", sender: nil)
+                } else {
+                    self.showError(withMessage: "No matching location found")
+                }
+            }
+        }
+    }
 }

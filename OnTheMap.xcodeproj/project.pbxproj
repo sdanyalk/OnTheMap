@@ -141,9 +141,9 @@
 		5AE74F3C21FAB78C005A6DB5 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				5A5CDB9122223EEB000B6E2D /* Extension */,
 				5AE74F3D21FAB78C005A6DB5 /* AppDelegate.swift */,
 				5AE74F4921FAB78D005A6DB5 /* Info.plist */,
+				5A5CDB9122223EEB000B6E2D /* Extension */,
 				5AE74F5421FABAE0005A6DB5 /* Model */,
 				5AE74F5321FABAD6005A6DB5 /* View */,
 				5AE74F5521FABAE7005A6DB5 /* Controller */,

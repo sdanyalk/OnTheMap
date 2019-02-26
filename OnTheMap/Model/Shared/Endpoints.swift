@@ -16,6 +16,7 @@ enum Endpoints {
     case createSessionId
     case getStudentLocation
     case postStudentLocation
+    case getUserInfo
     
     var stringValue: String {
         switch self {
@@ -27,6 +28,9 @@ enum Endpoints {
             
         case .postStudentLocation:
             return Endpoints.parseBase + "/StudentLocation"
+            
+        case .getUserInfo:
+            return Endpoints.udacityBase + "/users/"
         }
     }
     

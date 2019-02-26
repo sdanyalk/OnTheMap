@@ -9,9 +9,11 @@
 import Foundation
 
 struct SessionResponse: Codable {
+    let account: Account
     let session: Session
     
     enum CodingKeys: String, CodingKey {
+        case account
         case session
     }
 }

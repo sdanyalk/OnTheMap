@@ -42,6 +42,7 @@ class FindLocationViewController: UIViewController {
         if segue.identifier == "pinLocationSegue" {
             if let vc = segue.destination as? PinLocationMapViewController {
                 vc.studentCoordinate = self.coordinate
+                vc.location = locationTextField.text
             }
         }
     }

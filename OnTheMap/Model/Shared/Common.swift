@@ -13,4 +13,6 @@ class Common {
     static let sharedInstance = Common()
     
     var studentLocation = [StudentLocation]()
+    var userId = String()
+    var userInfo = UserInfoResponse(name: "", firstName: "", lastName: "")
 }

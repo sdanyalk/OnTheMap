@@ -10,21 +10,33 @@ import Foundation
 
 class UdacityClient {
     
-    class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+    class func login(username: String, password: String, completion: @escaping (Bool, SessionResponse?, Error?) -> Void) {
         let body = LoginRequest(udacity: Udacity(username: username, password: password))
         
         taskForPOSTRequest(url: Endpoints.createSessionId.url, responseType: SessionResponse.self, body: body) { response, error in
             if response != nil {
-                completion(true, nil)
+                completion(true, response!, nil)
             } else {
-                completion(false, error)
+                completion(false, nil, error)
+            }
+        }
+    }
+    
+    class func getUserInfo(id: String, completion: @escaping (UserInfoResponse?, Error?) -> Void) {
+        let userInfoUrl: URL = URL(string: Endpoints.getUserInfo.stringValue + id)!
+        
+        taskForGETRequest(url: userInfoUrl, responseType: UserInfoResponse.self) { response, error in
+            if let response = response {
+                completion(response, nil)
+            } else {
+                completion(nil, error)
             }
         }
     }
     
     class func taskForGETRequest<ResponseType: Decodable>(url: URL,
                                                           responseType: ResponseType.Type,
-                                                          completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionDataTask {
+                                                          completion: @escaping (ResponseType?, Error?) -> Void) -> Void {
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             guard let data = data else {
@@ -35,9 +47,10 @@ class UdacityClient {
             }
             
             let decoder = JSONDecoder()
-            
+            let newData = data.subdata(in: 5..<data.count)
+
             do {
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                let responseObject = try decoder.decode(ResponseType.self, from: newData)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)
                 }
@@ -49,8 +62,6 @@ class UdacityClient {
         }
         
         task.resume()
-        
-        return task
     }
     
     class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL,

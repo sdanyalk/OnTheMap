@@ -14,10 +14,15 @@ class PinLocationMapViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Variables
     
     var studentCoordinate: CLLocationCoordinate2D?
+    var location: String?
+    var userInfo: UserInfoResponse = {
+        return Common.sharedInstance.userInfo
+    }()
 
     // MARK: - Outlets
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var linkTextField: UITextField!
     
     // MARK: - UIViewController lifecycle
 
@@ -59,6 +64,20 @@ class PinLocationMapViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Actions
 
     @IBAction func submit(_ sender: Any) {
+        print(userInfo)
+        var studentLocation = StudentLocation()
+
+        studentLocation.firstName = userInfo.firstName
+        studentLocation.lastName = userInfo.lastName
+        studentLocation.mapString = self.location
+        studentLocation.mediaURL = ""
+        studentLocation.latitude = studentCoordinate?.latitude
+        studentLocation.longitude = studentCoordinate?.longitude
+        
+        ParseClient.postStudentLocation(body: studentLocation, completion: handlePostResponse(success:error:))
+    }
+    
+    private func handlePostResponse(success: Bool, error: Error?) {
         
     }
 }

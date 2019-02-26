@@ -50,6 +50,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             self.mapView.addAnnotations(annotations)
             self.mapView.showAnnotations(self.mapView.annotations, animated: true)
         }
+        
+        UdacityClient.getUserInfo(id: Common.sharedInstance.userId) { userInfoResponse, error in
+            if let userInfoResponse = userInfoResponse {
+                Common.sharedInstance.userInfo = userInfoResponse
+            }
+        }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

@@ -26,7 +26,9 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonClicked(_ sender: Any) {
         setLoggingIn(true)
         
-        UdacityClient.login(username: emailTextField.text ?? "", password: passwordTextField.text ?? "", completion: handleLoginResponse(success:error:))
+        UdacityClient.login(username: emailTextField.text ?? "",
+                            password: passwordTextField.text ?? "",
+                            completion: handleLoginResponse(success:response:error:))
     }
 }
 
@@ -52,10 +54,13 @@ extension LoginViewController {
 
 extension LoginViewController {
     
-    private func handleLoginResponse(success: Bool, error: Error?) {
+    private func handleLoginResponse(success: Bool, response: SessionResponse?, error: Error?) {
         setLoggingIn(false)
         
         if success {
+            if let response = response {
+                Common.sharedInstance.userId = response.account.key
+            }
             performSegue(withIdentifier: "loginSuccessful", sender: nil)
         } else {
             showError(withMessage: "Login failed. Check id/password")

@@ -10,16 +10,16 @@ import Foundation
 
 struct StudentLocation : Codable {
     
-    let createdAt: String?
-    let firstName: String?
-    let lastName: String?
-    let latitude: Double?
-    let longitude: Double?
-    let mapString: String?
-    let mediaURL: String?
-    let objectId: String?
-    let updatedAt: String?
-    let uniqueKey: String?
+    var createdAt: String?
+    var firstName: String?
+    var lastName: String?
+    var latitude: Double?
+    var longitude: Double?
+    var mapString: String?
+    var mediaURL: String?
+    var objectId: String?
+    var updatedAt: String?
+    var uniqueKey: String?
     
     enum CodingKeys: String, CodingKey {
 

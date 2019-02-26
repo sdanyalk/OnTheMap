@@ -309,6 +309,7 @@
                         <viewLayoutGuide key="safeArea" id="6PX-BB-7RQ"/>
                     </view>
                     <connections>
+                        <outlet property="linkTextField" destination="Uhc-st-9Oi" id="ABX-Fw-AVw"/>
                         <outlet property="mapView" destination="ZxC-UK-nkj" id="33B-93-tt3"/>
                     </connections>
                 </viewController>

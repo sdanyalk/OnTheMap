@@ -48,6 +48,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
             
             self.mapView.addAnnotations(annotations)
+            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
         }
     }
     

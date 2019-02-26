@@ -15,6 +15,7 @@ enum Endpoints {
     
     case createSessionId
     case getStudentLocation
+    case postStudentLocation
     
     var stringValue: String {
         switch self {
@@ -23,6 +24,9 @@ enum Endpoints {
             
         case .getStudentLocation:
             return Endpoints.parseBase + "/StudentLocation?limit=100"
+            
+        case .postStudentLocation:
+            return Endpoints.parseBase + "/StudentLocation"
         }
     }
     

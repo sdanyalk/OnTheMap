@@ -78,7 +78,7 @@ class ParseClient {
         request.addValue(ParseClient.appId, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(ParseClient.apiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
                 DispatchQueue.main.async {
@@ -87,16 +87,15 @@ class ParseClient {
                 return
             }
             let decoder = JSONDecoder()
-            let newData = data.subdata(in: 5..<data.count)
             
             do {
-                let responseObject = try decoder.decode(ResponseType.self, from: newData)
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)
                 }
             } catch {
                 do {
-                    let errorObject = try decoder.decode(ErrorResponse.self, from: newData) as Error
+                    let errorObject = try decoder.decode(ErrorResponse.self, from: data) as Error
                     DispatchQueue.main.async {
                         completion(nil, errorObject)
                     }

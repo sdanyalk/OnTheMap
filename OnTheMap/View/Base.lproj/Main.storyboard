@@ -311,6 +311,7 @@
                     <connections>
                         <outlet property="linkTextField" destination="Uhc-st-9Oi" id="ABX-Fw-AVw"/>
                         <outlet property="mapView" destination="ZxC-UK-nkj" id="33B-93-tt3"/>
+                        <segue destination="HTo-aH-OYL" kind="presentation" identifier="mainMapSegue" id="nMj-Ef-yt7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjR-td-bEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -343,7 +344,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="o8U-jf-74l">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -397,4 +398,7 @@
         <image name="icon_refresh" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nMj-Ef-yt7"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -64,20 +64,33 @@ class PinLocationMapViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Actions
 
     @IBAction func submit(_ sender: Any) {
-        print(userInfo)
         var studentLocation = StudentLocation()
+        
+        if let mediaUrl = linkTextField.text {
+            studentLocation.mediaURL = mediaUrl
+        } else {
+            showError(withMessage: "Please enter URL")
+        }
 
+        studentLocation.uniqueKey = ""
         studentLocation.firstName = userInfo.firstName
         studentLocation.lastName = userInfo.lastName
         studentLocation.mapString = self.location
-        studentLocation.mediaURL = ""
         studentLocation.latitude = studentCoordinate?.latitude
         studentLocation.longitude = studentCoordinate?.longitude
-        
+
         ParseClient.postStudentLocation(body: studentLocation, completion: handlePostResponse(success:error:))
     }
     
     private func handlePostResponse(success: Bool, error: Error?) {
-        
+        if success {
+            performSegue(withIdentifier: "mainMapSegue", sender: nil)
+        } else {
+            showError(withMessage: "Unable to post location")
+            
+            if let error = error {
+                print("Post location error: \(error)")
+            }
+        }
     }
 }

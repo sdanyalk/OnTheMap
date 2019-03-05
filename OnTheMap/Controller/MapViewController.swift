@@ -84,4 +84,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
+    
+    @IBAction func addLocation(_ sender: Any) {
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "FindLocationViewController") as! FindLocationViewController
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
 }

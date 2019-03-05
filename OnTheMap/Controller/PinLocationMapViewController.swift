@@ -84,7 +84,7 @@ class PinLocationMapViewController: UIViewController, MKMapViewDelegate {
     
     private func handlePostResponse(success: Bool, error: Error?) {
         if success {
-            performSegue(withIdentifier: "mainMapSegue", sender: nil)
+            self.navigationController?.popToRootViewController(animated: true)
         } else {
             showError(withMessage: "Unable to post location")
             

@@ -37,15 +37,6 @@ class FindLocationViewController: UIViewController {
         
         geocode(location: location)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "pinLocationSegue" {
-            if let vc = segue.destination as? PinLocationMapViewController {
-                vc.studentCoordinate = self.coordinate
-                vc.location = locationTextField.text
-            }
-        }
-    }
 }
 
 // Mark - Private Functions
@@ -71,7 +62,11 @@ extension FindLocationViewController {
                 
                 if let location = location {
                     self.coordinate = location.coordinate
-                    self.performSegue(withIdentifier: "pinLocationSegue", sender: nil)
+                    
+                    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PinLocationMapViewController") as! PinLocationMapViewController
+                    viewController.studentCoordinate = self.coordinate
+                    viewController.location = self.locationTextField.text
+                    self.navigationController?.pushViewController(viewController, animated: true)
                 } else {
                     self.showError(withMessage: "No matching location found")
                 }

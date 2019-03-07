@@ -15,47 +15,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mapView.delegate = self
         
-        var annotations = [MKPointAnnotation]()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: .reload, object: nil)
         
-        ParseClient.getStudentLocation() { locations, error in
-            for location in locations {
-                guard
-                    let lat: Double = location.latitude,
-                    let long: Double = location.longitude,
-                    let firstName: String = location.firstName,
-                    let lastName: String = location.lastName,
-                    let mediaURL: String = location.mediaURL else {
-                        
-                        debugPrint("ERROR: one of the properties needed for annotation is empty")
-                        continue
-                }
-                Common.sharedInstance.studentLocation.append(location)
-                
-                let latitude = CLLocationDegrees(lat)
-                let longitude = CLLocationDegrees(long)
-                
-                let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = "\(firstName) \(lastName)"
-                annotation.subtitle = mediaURL
-                
-                annotations.append(annotation)
-            }
-            
-            self.mapView.addAnnotations(annotations)
-            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
-        }
-        
-        UdacityClient.getUserInfo(id: Common.sharedInstance.userId) { userInfoResponse, error in
-            if let userInfoResponse = userInfoResponse {
-                Common.sharedInstance.userInfo = userInfoResponse
-            }
-        }
+        showStudents()
+        loadUserInfo()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -88,5 +57,57 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func addLocation(_ sender: Any) {
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "FindLocationViewController") as! FindLocationViewController
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+// MARK : - Private Functions
+
+extension MapViewController {
+    
+    func showStudents() {
+        var annotations = [MKPointAnnotation]()
+        
+        ParseClient.getStudentLocation() { locations, error in
+            for location in locations {
+                guard
+                    let lat: Double = location.latitude,
+                    let long: Double = location.longitude,
+                    let firstName: String = location.firstName,
+                    let lastName: String = location.lastName,
+                    let mediaURL: String = location.mediaURL else {
+                        
+                        debugPrint("ERROR: one of the properties needed for annotation is empty")
+                        continue
+                }
+                Common.sharedInstance.studentLocation.append(location)
+                
+                let latitude = CLLocationDegrees(lat)
+                let longitude = CLLocationDegrees(long)
+                
+                let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = coordinate
+                annotation.title = "\(firstName) \(lastName)"
+                annotation.subtitle = mediaURL
+                
+                annotations.append(annotation)
+            }
+            
+            self.mapView.addAnnotations(annotations)
+            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+        }
+    }
+    
+    func loadUserInfo(){
+        UdacityClient.getUserInfo(id: Common.sharedInstance.userId) { userInfoResponse, error in
+            if let userInfoResponse = userInfoResponse {
+                Common.sharedInstance.userInfo = userInfoResponse
+            }
+        }
+    }
+    
+    @objc func reloadData() {
+        self.showStudents()
     }
 }

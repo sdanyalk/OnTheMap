@@ -41,6 +41,19 @@ class PinLocationMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        initializeLinkTextField()
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        unsubscribeFromKeyboardNotifications()
+    }
+    
     // MARK: - MKMapViewDelegate lifecycle
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -84,6 +97,7 @@ class PinLocationMapViewController: UIViewController, MKMapViewDelegate {
     
     private func handlePostResponse(success: Bool, error: Error?) {
         if success {
+            NotificationCenter.default.post(name: .reload, object: nil)
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             showError(withMessage: "Unable to post location")
@@ -92,5 +106,56 @@ class PinLocationMapViewController: UIViewController, MKMapViewDelegate {
                 print("Post location error: \(error)")
             }
         }
+    }
+}
+
+// MARK: - Private Functions
+
+extension PinLocationMapViewController {
+    
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if linkTextField.isFirstResponder {
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    @objc func keyboardWillHide(){
+        view.frame.origin.y = 0
+    }
+    
+    func getKeyboardHeight(_ notification: Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue
+        
+        return keyboardSize.cgRectValue.height
+    }
+}
+
+// MARK: - TextField Delegate
+
+extension PinLocationMapViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        linkTextField.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        linkTextField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func initializeLinkTextField(){
+        linkTextField.delegate = self
     }
 }

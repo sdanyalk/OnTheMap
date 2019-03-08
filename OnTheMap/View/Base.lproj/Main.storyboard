@@ -158,8 +158,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="On The Map" id="dce-BX-qBP">
-                        <barButtonItem key="leftBarButtonItem" image="icon_pin" id="2tX-Rl-EdS"/>
-                        <barButtonItem key="rightBarButtonItem" image="icon_refresh" id="eYI-Ee-hie"/>
+                        <rightBarButtonItems>
+                            <barButtonItem image="icon_refresh" id="eYI-Ee-hie"/>
+                            <barButtonItem image="icon_pin" id="2tX-Rl-EdS"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGz-Ri-gzo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -374,12 +376,14 @@
                         <viewLayoutGuide key="safeArea" id="lPV-O0-LFa"/>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="7Vc-vh-EoC">
-                        <barButtonItem key="leftBarButtonItem" image="icon_pin" id="5j9-NY-UCx">
-                            <connections>
-                                <action selector="addLocation:" destination="HTo-aH-OYL" id="Zym-8Q-iQr"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="icon_refresh" id="z4j-oa-ZEF"/>
+                        <rightBarButtonItems>
+                            <barButtonItem image="icon_refresh" id="z4j-oa-ZEF"/>
+                            <barButtonItem image="icon_pin" id="5j9-NY-UCx">
+                                <connections>
+                                    <action selector="addLocation:" destination="HTo-aH-OYL" id="Zym-8Q-iQr"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="o8U-jf-74l" id="BYt-N7-2J8"/>

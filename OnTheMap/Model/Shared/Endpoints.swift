@@ -24,7 +24,7 @@ enum Endpoints {
             return Endpoints.udacityBase + "/session"
             
         case .getStudentLocation:
-            return Endpoints.parseBase + "/StudentLocation?limit=100"
+            return Endpoints.parseBase + "/StudentLocation?limit=100&order=-updatedAt"
             
         case .postStudentLocation:
             return Endpoints.parseBase + "/StudentLocation"

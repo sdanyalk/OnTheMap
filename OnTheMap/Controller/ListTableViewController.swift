@@ -45,4 +45,14 @@ class ListTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let student = self.studentLocations[(indexPath.row)]
+        
+        if let mediaUrl = student.mediaURL {
+            let app = UIApplication.shared
+            
+            app.open(URL(string: mediaUrl)!, options: [:], completionHandler: nil)
+        }
+    }
 }

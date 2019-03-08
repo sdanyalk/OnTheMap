@@ -21,6 +21,9 @@ class LoginViewController: UIViewController {
         activityIndicator.isHidden = true
         emailTextField.text = "toxicajepu@netmails.info"
         passwordTextField.text = "Udacity@Test"
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     @IBAction func loginButtonClicked(_ sender: Any) {
@@ -32,7 +35,7 @@ class LoginViewController: UIViewController {
     }
 }
 
-// Mark - Private Functions
+// MARK : - Private Functions
 
 extension LoginViewController {
     
@@ -50,7 +53,7 @@ extension LoginViewController {
     }
 }
 
-// Mark - Completion Handlers
+// MARK : - Completion Handlers
 
 extension LoginViewController {
     
@@ -65,5 +68,16 @@ extension LoginViewController {
         } else {
             showError(withMessage: "Login failed. Check id/password")
         }
+    }
+}
+
+// MARK : - Text Field Methods
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
     }
 }

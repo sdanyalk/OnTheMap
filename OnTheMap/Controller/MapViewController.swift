@@ -68,6 +68,12 @@ extension MapViewController {
         var annotations = [MKPointAnnotation]()
         
         ParseClient.getStudentLocation() { locations, error in
+            if let error = error {
+                self.showError(withMessage: error.localizedDescription)
+                
+                return
+            }
+            
             for location in locations {
                 guard
                     let lat: Double = location.latitude,
@@ -101,6 +107,12 @@ extension MapViewController {
     
     func loadUserInfo(){
         UdacityClient.getUserInfo(id: Common.sharedInstance.userId) { userInfoResponse, error in
+            if let error = error {
+                self.showError(withMessage: error.localizedDescription)
+                
+                return
+            }
+            
             if let userInfoResponse = userInfoResponse {
                 Common.sharedInstance.userInfo = userInfoResponse
             }

@@ -14,6 +14,7 @@ enum Endpoints {
     static let parseBase = "https://parse.udacity.com/parse/classes"
     
     case createSessionId
+    case deleteSession
     case getStudentLocation
     case postStudentLocation
     case getUserInfo
@@ -23,6 +24,9 @@ enum Endpoints {
         case .createSessionId:
             return Endpoints.udacityBase + "/session"
             
+        case .deleteSession:
+            return Endpoints.udacityBase + "/session"
+
         case .getStudentLocation:
             return Endpoints.parseBase + "/StudentLocation?limit=100&order=-updatedAt"
             

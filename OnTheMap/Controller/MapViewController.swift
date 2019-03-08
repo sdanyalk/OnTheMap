@@ -58,6 +58,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "FindLocationViewController") as! FindLocationViewController
         self.navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    @IBAction func logout(_ sender: Any) {
+    }
 }
 
 // MARK : - Private Functions

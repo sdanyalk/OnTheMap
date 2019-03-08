@@ -22,6 +22,16 @@ class UdacityClient {
         }
     }
     
+    class func logout(completion: @escaping (Session?, Error?) -> Void) {
+        taskForDELETERequest(url: Endpoints.deleteSession.url, responseType: Session.self) { response, error in
+            if let response = response {
+                completion(response, nil)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
     class func getUserInfo(id: String, completion: @escaping (UserInfoResponse?, Error?) -> Void) {
         let userInfoUrl: URL = URL(string: Endpoints.getUserInfo.stringValue + id)!
         
@@ -73,6 +83,54 @@ class UdacityClient {
         request.httpBody = try! JSONEncoder().encode(body)
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
+            }
+            let decoder = JSONDecoder()
+            let newData = data.subdata(in: 5..<data.count)
+            
+            do {
+                let responseObject = try decoder.decode(ResponseType.self, from: newData)
+                DispatchQueue.main.async {
+                    completion(responseObject, nil)
+                }
+            } catch {
+                do {
+                    let errorObject = try decoder.decode(ErrorResponse.self, from: newData) as Error
+                    DispatchQueue.main.async {
+                        completion(nil, errorObject)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completion(nil, error)
+                    }
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    class func taskForDELETERequest<ResponseType: Decodable>(url: URL,
+                                                             responseType: ResponseType.Type,
+                                                             completion: @escaping (ResponseType?, Error?) -> Void) -> Void {
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {

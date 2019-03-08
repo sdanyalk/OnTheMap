@@ -158,6 +158,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="On The Map" id="dce-BX-qBP">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="6ag-kA-J6V"/>
                         <rightBarButtonItems>
                             <barButtonItem image="icon_refresh" id="eYI-Ee-hie"/>
                             <barButtonItem image="icon_pin" id="2tX-Rl-EdS"/>
@@ -376,6 +377,11 @@
                         <viewLayoutGuide key="safeArea" id="lPV-O0-LFa"/>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="7Vc-vh-EoC">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="FOb-94-xwf">
+                            <connections>
+                                <action selector="logout:" destination="HTo-aH-OYL" id="ssx-5r-rIk"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="icon_refresh" id="z4j-oa-ZEF"/>
                             <barButtonItem image="icon_pin" id="5j9-NY-UCx">

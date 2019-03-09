@@ -158,7 +158,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="On The Map" id="dce-BX-qBP">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="6ag-kA-J6V"/>
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="6ag-kA-J6V">
+                            <connections>
+                                <action selector="logout:" destination="a5g-ef-lS0" id="PRC-G8-q80"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="icon_refresh" id="eYI-Ee-hie"/>
                             <barButtonItem image="icon_pin" id="2tX-Rl-EdS"/>

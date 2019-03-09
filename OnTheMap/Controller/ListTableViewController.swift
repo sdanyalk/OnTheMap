@@ -25,7 +25,11 @@ class ListTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
+    
+    @IBAction func logout(_ sender: Any) {
+        UdacityClient.logout(completion: handleLogoutResponse(response:error:))
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,6 +57,17 @@ class ListTableViewController: UITableViewController {
             let app = UIApplication.shared
             
             app.open(URL(string: mediaUrl)!, options: [:], completionHandler: nil)
+        }
+    }
+}
+
+extension ListTableViewController {
+    
+    private func handleLogoutResponse(response: SessionDeleteResponse?, error: Error?) {
+        if let error = error {
+            showError(withMessage: error.localizedDescription)
+        } else {
+            dismiss(animated: true, completion: nil)
         }
     }
 }

@@ -60,6 +60,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func logout(_ sender: Any) {
+        UdacityClient.logout(completion: handleLogoutResponse(response:error:))
+    }
+}
+
+extension MapViewController {
+    
+    private func handleLogoutResponse(response: SessionDeleteResponse?, error: Error?) {
+        if let error = error {
+            showError(withMessage: error.localizedDescription)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
 }
 

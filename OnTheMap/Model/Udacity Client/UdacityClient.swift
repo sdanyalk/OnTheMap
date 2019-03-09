@@ -22,8 +22,8 @@ class UdacityClient {
         }
     }
     
-    class func logout(completion: @escaping (Session?, Error?) -> Void) {
-        taskForDELETERequest(url: Endpoints.deleteSession.url, responseType: Session.self) { response, error in
+    class func logout(completion: @escaping (SessionDeleteResponse?, Error?) -> Void) {
+        taskForDELETERequest(url: Endpoints.deleteSession.url, responseType: SessionDeleteResponse.self) { response, error in
             if let response = response {
                 completion(response, nil)
             } else {
@@ -141,6 +141,8 @@ class UdacityClient {
             }
             let decoder = JSONDecoder()
             let newData = data.subdata(in: 5..<data.count)
+            
+            print(String(data: newData, encoding: String.Encoding.utf8)!)
             
             do {
                 let responseObject = try decoder.decode(ResponseType.self, from: newData)
